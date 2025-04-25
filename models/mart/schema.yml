@@ -1,0 +1,11 @@
+
+version: 2
+
+models:
+  - name: total_yearly
+    description: "A starter dbt model"
+    columns:
+      - name: sum
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
