@@ -1,22 +1,7 @@
-
-/*
-    Welcome to your first dbt model!
-    Did you know that you can also configure models directly within SQL files?
-    This will override configurations stated in dbt_project.yml
-
-    Try changing "table" to "view" below
-*/
-
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 select 
 	year,
-	province_name,
-	sum(value)
-from dbt.westjava_occupation
-group by 1,2
+	sum(number_of_people) number_of_people
+from {{ ref('total_by_occupation_group_yearly') }}
+group by 1
 order by 1
-/*
-    Uncomment the line below to remove records with null `id` values
-*/
-
--- where id is not null
