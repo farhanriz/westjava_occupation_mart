@@ -1,0 +1,15 @@
+models:
+  - name: total_yearly
+    columns:
+      - name: year
+        tests:
+          - unique
+      - name: number_of_people
+        tests:
+         - not_null
+  - name: total_unemployed_yearly
+    columns:
+      - name: occupation_group
+        tests:
+          - accepted_values:
+              values: ['TIDAK/BELUM BEKERJA']
