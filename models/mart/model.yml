@@ -1,15 +1,42 @@
 models:
+  - name: total_by_occupation_group_yearly
+    columns:
+      - name: year
+        description: year of data
+      - name: occupation_group
+        description: type of occupation
+      - name: number_of_people
+        description: total population
+        tests: 
+          - not_null
+      - name: updated_at
+        description: Timestamp table generated
   - name: total_yearly
     columns:
       - name: year
+        description: year of data
         tests:
           - unique
       - name: number_of_people
-        tests:
-         - not_null
+        description: total population
+        tests: 
+          - not_null
+      - name: updated_at
+        description: Timestamp table generated
   - name: total_unemployed_yearly
     columns:
+      - name: year
+        description: year of data
+        tests:
+          - unique
       - name: occupation_group
+        description: type of occupation
         tests:
           - accepted_values:
               values: ['TIDAK/BELUM BEKERJA']
+      - name: number_of_people
+        description: total population
+        tests: 
+          - not_null
+      - name: updated_at
+        description: Timestamp table generated

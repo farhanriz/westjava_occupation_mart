@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: westjava_occupation
-    description: A clone of a Postgres application database.
+    description: Dataset ini berisi data jumlah penduduk berdasarkan kelompok pekerjaan dan jenis kelamin di Provinsi Jawa Barat dari tahun 2015 s.d. 2023. Dataset terkait topik Kependudukan ini dihasilkan oleh Dinas Kependudukan Dan Pencatatan Sipil yang dikeluarkan dalam periode 1 tahun sekali. 
     database: postgres
     schema: dbt
     tables:
@@ -10,36 +10,36 @@ sources:
         freshness:
           warn_after: {count: 12, period: hour}
           error_after: {count: 1, period: day}
-        loaded_at_field: "updated_at::timestamp"
+        loaded_at_field: "updated_at"
         description: Raw data
         columns:
           - name: id
-            description: Primary key.
+            description: Primary key
             tests:
               - unique
               - not_null
           - name: province_name
-            description: Name of province 
+            description: menyatakan lingkup data berasal dari wilayah Provinsi Jawa Barat sesuai ketentuan BPS merujuk pada aturan Keputusan Kepala Badan Pusat Statistik Nomor 649 tahun 2023 tentang Kode Dan Nama Wilayah Kerja Statistik dengan tipe data teks. 
             tests:
               - not_null
           - name: occupation_group
-            description: group of occupation
+            description: menyatakan kelompok pekerjaan penduduk dengan tipe data teks.
             tests:
               - not_null
           - name: gender
-            description: gender type
+            description: '{{ doc("gender_value") }}'
             tests:
               - not_null
           - name: value
-            description: value of citizen in unit
+            description: menyatakan jumlah penduduk berdasarkan kelompok pekerjaan dengan tipe data numerik.
             tests:
               - not_null
           - name: unit
-            description: unit name
+            description: menyatakan satuan dari pengukuran jumlah penduduk dalam jiwa dengan tipe data teks.
             tests:
               - not_null
           - name: year
-            description: year of the data
+            description: menyatakan tahun produksi data dengan tipe data numerik.
             tests:
               - not_null
             
