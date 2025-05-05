@@ -1,15 +1,31 @@
-Welcome to your new dbt project!
+West Java Occupation Data Model (a data build tool-dbt project)
+Data source:
+["Population by Occupation Group and Gender in West Java"](https://opendata.jabarprov.go.id/id/dataset/jumlah-penduduk-berdasarkan-kelompok-pekerjaan-dan-jenis-kelamin-di-jawa-barat)
 
-### Using the starter project
+# West Java Occupation Data Model
 
-Try running the following commands:
-- dbt run
-- dbt test
+This project is a [dbt (data build tool)](https://www.getdbt.com/) implementation designed to model and analyze population occupation data in West Java, Indonesia.
 
+## Project Overview
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- **Project Name**: West Java Occupation Data Model  
+- **Tool**: dbt (Data Build Tool)  
+- **Language**: Python (for data extraction)
+
+## Data Source
+
+The data is sourced from the official West Java open data portal:
+
+> [Population by Occupation Group and Gender in West Java](https://opendata.jabarprov.go.id/id/dataset/jumlah-penduduk-berdasarkan-kelompok-pekerjaan-dan-jenis-kelamin-di-jawa-barat)
+
+## Workflow
+
+1. **Extract & Load**  
+   Use `get_data.py` to download and load the raw data into the database.
+
+2. **Transform (with dbt)**  
+   Several models have been created within the dbt project to:
+   - Create data marts
+   - Perform validations with data tests
+   - Monitor freshness
+   - Generate rich documentation
